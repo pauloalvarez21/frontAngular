@@ -1,0 +1,33 @@
+<div class="container">
+<h1>{{ titulo }}</h1>
+<button class="btn btn-info" type="button" [routerLink]="['/cards/form']">Nueva tarjeta</button>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Titular</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of cards">
+        <th scope="row">{{card.id}}</th>
+        <td>{{card.numero}}</td>
+        <td>{{card.titular}}</td>
+        <td>{{card.cedula}}</td>
+        <td>{{card.tipo}}</td>
+        <td>{{card.telefono}}</td>
+        <td>{{card.estado}}</td>
+        <td> <button type="button" name="button" class="btn btn-primary" [routerLink]="['/cards/form', card.id]">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="delete(card)">Eliminar</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
